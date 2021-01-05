@@ -1,7 +1,7 @@
 library(dplyr)
-suspension_df<-read.csv("Suspension_Coil.csv", check.names = F, stringsAsFactors = F)
-total_summary<-suspension_df %>% summarize(Mean = mean(PSI), Median = median(PSI), variance = var(PSI), SD = sd(PSI))
-total_summary
+suspension_df<- read.csv("Suspension_Coil.csv", stringsAsFactors = F, check.names = F)
+t.test(suspension_df$PSI, mu=1500)
 
-lot_summary<- suspension_df %>% group_by(Manufacturing_Lot) %>% summarize(Mean = mean(PSI), Median = median(PSI), variance = var(PSI), SD = sd(PSI), .groups="keep")
-lot_summary
+t.test(subset(suspension_df, Manufacturing_Lot == "Lot1")$PSI, mu = 1500)
+t.test(subset(suspension_df, Manufacturing_Lot == "Lot2")$PSI, mu = 1500)
+t.test(subset(suspension_df, Manufacturing_Lot == "Lot3")$PSI, mu = 1500)
