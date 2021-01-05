@@ -1,0 +1,5 @@
+library(dplyr)
+mega_df<-read.csv("MechaCar_mpg.csv", check.names = F, stringsAsFactors = F)
+mega_df
+mega_lr<-lm(mpg~ AWD+ ground_clearance+ spoiler_angle+ vehicle_weight+ vehicle_length, data=mega_df)
+summary(mega_lr)
