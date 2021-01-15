@@ -1,0 +1,7 @@
+library(dplyr)
+suspension_df<- read.csv("Suspension_Coil.csv", stringsAsFactors = F, check.names = F)
+t.test(suspension_df$PSI, mu=1500)
+
+t.test(subset(suspension_df, Manufacturing_Lot == "Lot1")$PSI, mu = 1500)
+t.test(subset(suspension_df, Manufacturing_Lot == "Lot2")$PSI, mu = 1500)
+t.test(subset(suspension_df, Manufacturing_Lot == "Lot3")$PSI, mu = 1500)
